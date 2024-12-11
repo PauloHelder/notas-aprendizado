@@ -1,0 +1,17 @@
+{% extends "learnings/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+   <h2>Crie sua conta</h2>
+{% endblock header %}
+
+{% block content %}
+ <form action="{% url 'login' %}" method="post" class="form">   
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button class="btn btn-primary" type="submit" name="submit">Entrar</button>
+    {% endbuttons %}
+    <input type="hidden" name="next" value="{% url 'home' %}">
+ </form>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "learnings/base.html" %}
+{% load bootstrap3%}
+
+{% block header %}
+   <h2><a href="{% url 'topic' topic.id %}">{{topic}}</a></h2>
+{% endblock header %}
+
+{% block content %}
+
+<p>Editar Anotação de {{topic}} </p>
+ <form action="{% url 'edit_entry' entry.id %}" method="post" class="form">   
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button class="btn btn-primary" type="submit" name="submit">Editar</button>
+ </form>
+{% endblock content %}
